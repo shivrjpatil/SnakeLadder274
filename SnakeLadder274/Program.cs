@@ -11,8 +11,12 @@ namespace SnakeLadder274
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to snake and Ladder Simulator ");
-            int playerPosition = 0;
-            Console.WriteLine("lets play! \nPlayerPosition=" + playerPosition);
+            int PlayerPosition = 0;
+            Console.WriteLine("lets play! \nPlayerPosition=" + PlayerPosition);
+
+            Random random = new Random();
+            int Dice = random.Next(1, 7);
+            Console.WriteLine("after die rolles the number =" + Dice);
             Console.ReadLine();
         }
     }

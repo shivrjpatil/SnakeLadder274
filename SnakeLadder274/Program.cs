@@ -19,11 +19,10 @@ namespace SnakeLadder274
                 Random random = new Random();
                 int Dice = random.Next(1, 7);
                 Console.WriteLine("after die rolles the number =" + Dice);
-                // PlayerPosition += Dice;
-                //Console.WriteLine("Player Position " + PlayerPosition);
+
 
                 int check = random.Next(0, 3);
-                Console.WriteLine(check);
+                Console.WriteLine("Option for the user=" + check);
 
                 switch (check)
                 {
@@ -34,8 +33,13 @@ namespace SnakeLadder274
 
                     case Ladder:
                         PlayerPosition += Dice;
+                        if (PlayerPosition > WinningPosition)
+                        {
+                            PlayerPosition = WinningPosition - PlayerPosition;
+                            if (PlayerPosition == Dice)
+                                Console.WriteLine("Player Position =" + PlayerPosition);
+                        }
                         Console.WriteLine("Player Position = " + PlayerPosition);
-
                         break;
                     case Snake:
                         PlayerPosition -= Dice;

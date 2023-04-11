@@ -11,14 +11,16 @@ namespace SnakeLadder274
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to snake and Ladder Simulator ");
-            int PlayerPosition = 0;
+            int PlayerPosition = 0, count = 0;
             const int NoPlay = 0, Ladder = 1, Snake = 2, WinningPosition = 100;
             Console.WriteLine("lets play! \nPlayerPosition=" + PlayerPosition);
+
             while (PlayerPosition < WinningPosition)
             {
                 Random random = new Random();
                 int Dice = random.Next(1, 7);
                 Console.WriteLine("after die rolles the number =" + Dice);
+                count++;
 
 
                 int check = random.Next(0, 3);
@@ -41,6 +43,7 @@ namespace SnakeLadder274
                         }
                         Console.WriteLine("Player Position = " + PlayerPosition);
                         break;
+
                     case Snake:
                         PlayerPosition -= Dice;
                         if (PlayerPosition < 0)
@@ -50,8 +53,8 @@ namespace SnakeLadder274
                         Console.WriteLine("Player Position = " + PlayerPosition);
                         break;
                 }
-
             }
+            Console.WriteLine("The number of times Dice rolled=" + count);
             Console.ReadLine();
         }
     }

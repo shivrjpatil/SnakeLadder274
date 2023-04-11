@@ -12,33 +12,41 @@ namespace SnakeLadder274
         {
             Console.WriteLine("Welcome to snake and Ladder Simulator ");
             int PlayerPosition = 0;
-            const int NoPlay = 0, Ladder = 1, Snake = 2;
+            const int NoPlay = 0, Ladder = 1, Snake = 2, WinningPosition = 100;
             Console.WriteLine("lets play! \nPlayerPosition=" + PlayerPosition);
-
-            Random random = new Random();
-            int Dice = random.Next(1, 7);
-            Console.WriteLine("after die rolles the number =" + Dice);
-            // PlayerPosition += Dice;
-            //Console.WriteLine("Player Position " + PlayerPosition);
-
-            int check = random.Next(0, 3);
-            Console.WriteLine(check);
-
-            switch (check)
+            while (PlayerPosition < WinningPosition)
             {
-                case NoPlay:
-                    PlayerPosition += 0;
-                    Console.WriteLine("Player Position " + PlayerPosition);
-                    break;
+                Random random = new Random();
+                int Dice = random.Next(1, 7);
+                Console.WriteLine("after die rolles the number =" + Dice);
+                // PlayerPosition += Dice;
+                //Console.WriteLine("Player Position " + PlayerPosition);
 
-                case Ladder:
-                    PlayerPosition += Dice;
-                    Console.WriteLine("Player Position " + PlayerPosition);
-                    break;
-                case Snake:
-                    PlayerPosition -= Dice;
-                    Console.WriteLine("Player Position " + PlayerPosition);
-                    break;
+                int check = random.Next(0, 3);
+                Console.WriteLine(check);
+
+                switch (check)
+                {
+                    case NoPlay:
+                        PlayerPosition += 0;
+                        Console.WriteLine("Player Position = " + PlayerPosition);
+                        break;
+
+                    case Ladder:
+                        PlayerPosition += Dice;
+                        Console.WriteLine("Player Position = " + PlayerPosition);
+
+                        break;
+                    case Snake:
+                        PlayerPosition -= Dice;
+                        if (PlayerPosition < 0)
+                        {
+                            PlayerPosition = 0;
+                        }
+                        Console.WriteLine("Player Position = " + PlayerPosition);
+                        break;
+                }
+
             }
             Console.ReadLine();
         }
